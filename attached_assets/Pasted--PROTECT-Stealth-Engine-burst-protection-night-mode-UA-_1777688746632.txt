@@ -1,0 +1,30 @@
+[ PROTECT ]: Stealth-Engine ✓ burst protection + night-mode + UA rotation + thread jitter
+[ PROTECT ]: Fast-Ping ✓ every 10 seconds (watchdog → /ping)
+[ PROTECT ]: Auto-Ping ✓ random 8-18 min
+[ PROTECT ]: Cookie Save ✓ every 10 min → ZAO-STATE.json & alt.json
+[ PROTECT ]: Auto-Relogin ✓ 3 attempts / 3-min cooldown (JSON/Token/String/Netscape → Email/Password fallback)
+[ PROTECT ]: Health-Monitor ✓ cookie scan every 5 min + send-fail watchdog → auto tier-switch (Tier 1→2→3)
+[ PROTECT ]: Session-Check ✓ proactive live-cookie validation every 35 min
+[ PROTECT ]: MQTT-Silence ✓ إعادة تشغيل المستمع إذا صمت > 10 دقائق
+[ PROTECT ]: MQTT-HealthCheck ✓ فحص ذكي مع backoff تصاعدي (من GoatBot)
+[ PROTECT ]: Human-Typing ✓ محاكاة الطباعة البشرية قبل كل رد
+[ PROTECT ]: Keep-Alive ✓ Ping مباشر لفيسبوك كل 8-18 دقيقة + تجديد fb_dtsg كل 48 ساعة
+[ PROTECT ]: Memory-Guard ✓ clean restart if heap > 512 MB
+[ PROTECT ]: Graceful-Exit ✓ two-stage drain — stop dispatch → flush motors/locks → save cookies
+[ PROTECT ]: Loop-Lag-Guard ✓ perf_hooks p95 > 500ms for 30s → stack snapshot + clean recycle
+[ PROTECT ]: Disk-Guard ✓ rotate large logs + prune backups; emergency cleanup at 90% disk
+[ PROTECT ]: Network-Probe ✓ DNS+TCP edge-mqtt.facebook.com check before tier-switch (no wasted relogins)
+[ PROTECT ]: Command-Sandbox ✓ 30s wall-clock timeout on every command.run / handleReply / handleEvent
+[ PROTECT ]: Error-Budget ✓ >5 errors / 10 min on the same command → auto-disable 1h + admin notify
+[ PROTECT ]: Cookie-Snapshot ✓ last 5 validated snapshots in backups/ — watchdog restores instead of re-logging in
+[ PROTECT ]: Listen-Error ✓ instant listener restart + login_blocked/account_inactive/auth_error detection
+[ PROTECT ]: Error-Notify ✓ Telegram / Discord webhook on session-kill or listen errors (opt-in)
+[ PROTECT ]: GraphQL-Visit ✓ CometNotificationsDropdownQuery every 30-120 min — looks like a real client
+[ PROTECT ]: Auto-Uptime ✓ external-URL ping for free hosts (opt-in via autoUptime.enable)
+[ PROTECT ]: Sync-Groups ✓ warm threadInfo cache from INBOX after login (idea from holo)
+[ PROTECT ]: Refresh-Cache ✓ live update on log:thread-admins / name / subscribe / unsubscribe (from seiko)
+[ PROTECT ]: Auto-Lock ✓ raid guard — auto-lock after 15 non-admin cmds in 30s
+[ PROTECT ]: Settings-Watch ✓ hot-reload ZAO-SETTINGS.json
+[ PROTECT ]: Crash-Restore ✓ alt.json → ZAO-STATE.json on crash
+[ PROTECT ]: Cache-Cleanup ✓ prune userName/threadInfo/threadData maps every 2 h (max 5 000 entries)
+[ PROTECT ]: Cookie-Refresh ✓ forced credential re-login every 1440 min

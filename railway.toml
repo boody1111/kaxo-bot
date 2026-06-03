@@ -1,0 +1,24 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "./start.sh"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+healthcheckPath = "/api/healthz"
+healthcheckTimeout = 30
+
+# ── Required environment variables ────────────────────────────────────────────
+# Set these in the Railway dashboard under Variables:
+#
+#   PORT          — set automatically by Railway, no action needed
+#   APPSTATE      — your Facebook appstate JSON (array), base for appstate.json
+#   BOT_SETTINGS  — bot settings JSON, e.g. {"prefix":"/","admins":["ID"],"botName":"Bot"}
+#
+# ── Optional: persistent volume (recommended) ─────────────────────────────────
+# Add a Railway Volume mounted at /data, then set:
+#   BOT_DIR = /data
+#
+# This keeps your cookies, settings, and state files safe across redeploys.
+# Without a volume, BOT_DIR defaults to /app/bot (files reset on each deploy).
