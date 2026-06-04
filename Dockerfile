@@ -10,7 +10,7 @@ RUN npm install -g pnpm@10.26.1
 WORKDIR /app
 
 # Copy entire workspace source
-COPY pnpm-workspace.yaml package.json tsconfig.base.json tsconfig.json ./
+COPY pnpm-workspace.yaml package.json tsconfig.base.json tsconfig.json pnpm-lock.yaml ./
 COPY artifacts/ ./artifacts/
 COPY lib/ ./lib/
 COPY scripts/ ./scripts/
@@ -32,7 +32,7 @@ WORKDIR /app
 
 # Bot: install its own dependencies
 COPY bot/package.json ./bot/
-RUN cd bot && npm install --production --no-package-lock
+RUN cd bot && npm install --production --legacy-peer-deps --no-package-lock
 
 # Bot source files
 COPY bot/ ./bot/
